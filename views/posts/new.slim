@@ -1,0 +1,12 @@
+- if @post.errors.any?
+  div id="error_explanation"
+    h2 These prohibited this post from being saved:
+
+    ul
+      - @post.errors.full_messages.each do |message|
+      li = message
+
+form method="POST" action="/posts"
+  == text_input :title
+  == text_area :content
+  == submit_button "Create Post"

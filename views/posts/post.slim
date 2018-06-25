@@ -1,0 +1,15 @@
+== styles :post
+
+div id="post_holder"
+  - @posts.each do |post|
+    div class="post"
+      div class="index" = post.id
+      div class="title" = post.title
+      div class="content" = post.content
+      div class="edit_link_holder"
+        a href="/posts/#{post.id}/edit"
+          | Edit Post
+
+div id="add_post_button"
+  a href="/posts/new"
+    | New Post

@@ -1,0 +1,14 @@
+.post {
+    width: 90vw;
+    height: auto;
+    display: block;
+    border: 1px solid black;
+    background-color: yellow;
+    border-radius: 4px;
+    padding: 5px;
+    margin: 5px;
+}
+
+.title, .index {
+    display: inline-block;
+}

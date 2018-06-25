@@ -1,0 +1,5 @@
+form method="POST" action="/posts/#{@post.id}"
+  == use_method :put
+  == text_input :title, @post.title
+  == text_area :content, @post.content
+  == submit_button "Update Post"

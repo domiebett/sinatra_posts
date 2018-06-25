@@ -1,0 +1,15 @@
+development:
+  adapter: postgresql
+  encoding: unicode
+  database: sinatra_posts
+  pool: 2
+  username: dominicbett
+  password:
+
+production:
+  adapter: postgresql
+  encoding: unicode
+  database: sinatra_posts
+  pool: 2
+  username: domiebett
+  password:
