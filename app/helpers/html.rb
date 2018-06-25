@@ -33,12 +33,11 @@ module Html
       %(<input type="hidden" name="_method" value="#{method}"/>)
     end
 
-    def text_input(name, value = '')
-      name = name.to_s
+    def input(name, type = 'text', value = '')
       %(
       <div class="text_input_holder" id="#{name}_text_input_holder">
         <label for="#{name}_text_input">#{name}</label>
-        <input type="text"
+        <input type="#{type}"
                 id="#{name}_text_input"
                 name="#{name}"
                 placeholder="Enter #{name}"
@@ -48,7 +47,6 @@ module Html
     end
 
     def text_area(name, value = '')
-      name = name.to_s
       %(
       <div class="text_area_holder" id="#{name}_text_area_holder">
         <label for="#{name}_text_input">#{name}</label>

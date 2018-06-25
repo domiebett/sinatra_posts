@@ -2,11 +2,15 @@ require 'sinatra'
 require 'slim'
 
 require_relative '../helpers/html'
+require_relative '../helpers/helpers'
 require_relative '../models/post'
+require_relative '../extensions/authentication'
 
 class App < Sinatra::Application
 
   helpers Html::StyleHelpers, Html::FormHelpers
+
+  register Sinatra::Authenticate
 
   get '/posts/new' do
     @post = Post.new
