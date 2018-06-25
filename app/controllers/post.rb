@@ -6,7 +6,7 @@ require_relative '../models/post'
 
 class App < Sinatra::Application
 
-  helpers Html::StyleHelpers, Html::FormHelpers, Html::HtmlMethodHelpers
+  helpers Html::StyleHelpers, Html::FormHelpers
 
   get '/posts/new' do
     @post = Post.new
@@ -46,7 +46,10 @@ class App < Sinatra::Application
     end
   end
 
-  delete '/posts' do
-    'Deleting posts'
+  delete '/posts/:id' do
+    @post = Post.find(params[:id])
+    if @post.destroy
+      redirect '/posts'
+    end
   end
 end

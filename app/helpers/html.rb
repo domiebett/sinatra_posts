@@ -26,6 +26,13 @@ module Html
   end
 
   module FormHelpers
+    HTML_METHODS = %w[PUT PATCH DELETE].freeze
+
+    def use_method(method = 'PUT')
+      method = HTML_METHODS.include?(method.to_s.upcase) ? method : 'GET'
+      %(<input type="hidden" name="_method" value="#{method}"/>)
+    end
+
     def text_input(name, value = '')
       name = name.to_s
       %(
@@ -67,14 +74,14 @@ module Html
       </div>
       )
     end
-  end
 
-  module HtmlMethodHelpers
-    HTML_METHODS = %w[PUT PATCH].freeze
-
-    def use_method(method = 'PUT')
-      method = HTML_METHODS.include?(method.to_s.upcase) ? method : 'GET'
-      %(<input type="hidden" name="_method" value="#{method}"/>)
+    def button_to(value, method, route)
+      %(
+        <form method="POST" action="#{route}">
+          #{use_method(method)}
+          #{submit_button(value)}
+        </form>
+      )
     end
   end
 end

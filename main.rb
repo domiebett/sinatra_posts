@@ -4,4 +4,4 @@ class App < Sinatra::Application
 
 end
 
-require_relative 'app/init'
+require_relative 'app/controllers/init'
